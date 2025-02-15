@@ -17,7 +17,7 @@ spec:
       - name: pyui-api
         image: thanabodin/pyui-api-test:v0.0.3
         ports:
-        - containerPort: 8000
+        - containerPort: 80
         resources:
           requests:
             cpu: "500m"
