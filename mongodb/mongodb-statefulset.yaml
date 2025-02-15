@@ -12,7 +12,8 @@ spec:
     metadata:
       labels:
         app: mongodb
-    spec: # Noncompliant
+    spec:
+      automountServiceAccountToken: false
       containers:
         - name: mongodb
           image: mongo:4.4.10
@@ -21,13 +22,18 @@ spec:
           volumeMounts:
             - name: mongodb-persistent-storage
               mountPath: /data/db
-          # Load environment variables from the secret 'mongodb-secrets'
-          # Expected secrets:
-          # - MONGO_INITDB_ROOT_USERNAME: the MongoDB root username
-          # - MONGO_INITDB_ROOT_PASSWORD: the MongoDB root password
           envFrom:
             - secretRef:
                 name: mongodb-secrets
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+              ephemeral-storage: "500Mi"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+              ephemeral-storage: "1Gi"
   volumeClaimTemplates:
     - metadata:
         name: mongodb-persistent-storage
@@ -36,4 +42,6 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 1Gi
+            storage: 10Gi
+          limits:
+            storage: 30Gi
