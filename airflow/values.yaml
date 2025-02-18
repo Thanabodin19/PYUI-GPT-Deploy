@@ -1,0 +1,22 @@
+# Images
+images:
+  airflow:
+    repository: thanabodin/airflow-test
+    tag: 0.0.1
+    # Specifying digest takes precedence over tag.
+    digest: ~
+    pullPolicy: IfNotPresent
+
+config:
+  api:
+    auth_backend: 'airflow.api.auth.backend.basic_auth'
+  logging:
+    remote_logging: "True"
+    remote_log_conn_id: minio_conn
+    remote_base_log_folder: s3://airflow-logs
+    colored_console_log: True
+  core:
+    remote_logging: "True"
+    remote_log_conn_id: minio_conn
+
+executor: "KubernetesExecutor"
