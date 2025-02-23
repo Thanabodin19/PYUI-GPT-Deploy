@@ -1,8 +1,8 @@
 # Images
 images:
   airflow:
-    repository: thanabodin/airflow-test
-    tag: 0.0.1
+    repository: 
+    tag: 
     # Specifying digest takes precedence over tag.
     digest: ~
     pullPolicy: IfNotPresent
