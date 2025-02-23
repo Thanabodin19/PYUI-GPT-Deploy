@@ -1,8 +1,8 @@
 # Images
 images:
   airflow:
-    repository: thanabodin/pyui-airflow
-    tag: t0.0.4
+    repository: thanabodin/airflow-test
+    tag: 0.0.1
     # Specifying digest takes precedence over tag.
     digest: ~
     pullPolicy: IfNotPresent
@@ -20,7 +20,7 @@ config:
     remote_logging: "True"
     remote_log_conn_id: minio_conn
 
-# executor: "KubernetesExecutor"
+executor: "KubernetesExecutor"
 
 volumeMounts:
   - name: airflow-tmp-volume
