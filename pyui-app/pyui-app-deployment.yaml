@@ -23,10 +23,8 @@ spec:
               name: pyui-secrets
          resources:
             requests:
-              memory: "1Gi"
+              memory: "3Gi"
               cpu: "1000m"
-              ephemeral-storage: "1Gi"
             limits:
-              memory: "2Gi"
+              memory: "5Gi"
               cpu: "2000m"
-              ephemeral-storage: "2Gi"
