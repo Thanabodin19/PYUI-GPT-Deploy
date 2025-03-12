@@ -58,3 +58,8 @@ webserver:
     failureThreshold: 6
     periodSeconds: 300
     scheme: HTTP
+
+workers:
+  serviceAccount:
+    create: true
+    name: "airflow-worker"
