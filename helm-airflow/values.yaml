@@ -79,8 +79,8 @@ airflowVersion: "2.9.3"
 # Images
 images:
   airflow:
-    repository: pyui-airflow
-    tag: 0.0.11
+    repository: thanabodin/pyui-airflow
+    tag: 0.0.1
     # Specifying digest takes precedence over tag.
     digest: ~
     pullPolicy: IfNotPresent
