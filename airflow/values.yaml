@@ -1,60 +1,63 @@
-# Images
-images:
-  airflow:
-    repository: thanabodin/pyui-airflow
-    tag: 0.0.1
-    # Specifying digest takes precedence over tag.
-    digest: ~
-    pullPolicy: IfNotPresent
+airflow:
+  helmChartVersion: "1.15.0"
 
-config:
-  api:
-    auth_backend: 'airflow.api.auth.backend.basic_auth'
-  logging:
-    remote_logging: 'True'
-    remote_log_conn_id: 'minio_conn'
-    remote_base_log_folder: 's3://airflow-logs'
-    encrypt_s3_logs: 'False'
-    colored_console_log: True
-  core:
-    remote_logging: "True"
-    remote_log_conn_id: minio_conn
+# # Images
+# images:
+#   airflow:
+#     repository: thanabodin/pyui-airflow
+#     tag: 0.0.1
+#     # Specifying digest takes precedence over tag.
+#     digest: ~
+#     pullPolicy: IfNotPresent
 
-executor: "KubernetesExecutor"
+# config:
+#   api:
+#     auth_backend: 'airflow.api.auth.backend.basic_auth'
+#   logging:
+#     remote_logging: 'True'
+#     remote_log_conn_id: 'minio_conn'
+#     remote_base_log_folder: 's3://airflow-logs'
+#     encrypt_s3_logs: 'False'
+#     colored_console_log: True
+#   core:
+#     remote_logging: "True"
+#     remote_log_conn_id: minio_conn
 
-# volumeMounts:
-#   - name: airflow-tmp-volume
-#     mountPath: /opt/airflow/tmp
+# executor: "KubernetesExecutor"
 
-# volumes:
-#   - name: airflow-tmp-volume
-#     persistentVolumeClaim:
-#       claimName: airflow-tmp-pvc
+# # volumeMounts:
+# #   - name: airflow-tmp-volume
+# #     mountPath: /opt/airflow/tmp
 
-webserver:
-  resources:
-    limits:
-      memory: 4Gi
-    requests:
-      cpu: 1000m
-      memory: 4Gi
+# # volumes:
+# #   - name: airflow-tmp-volume
+# #     persistentVolumeClaim:
+# #       claimName: airflow-tmp-pvc
 
-  livenessProbe:
-    initialDelaySeconds: 15
-    timeoutSeconds: 300
-    failureThreshold: 20
-    periodSeconds: 60
-    scheme: HTTP
+# webserver:
+#   resources:
+#     limits:
+#       memory: 4Gi
+#     requests:
+#       cpu: 1000m
+#       memory: 4Gi
 
-  readinessProbe:
-    initialDelaySeconds: 15
-    timeoutSeconds: 300
-    failureThreshold: 20
-    periodSeconds: 60
-    scheme: HTTP
+#   livenessProbe:
+#     initialDelaySeconds: 15
+#     timeoutSeconds: 300
+#     failureThreshold: 20
+#     periodSeconds: 60
+#     scheme: HTTP
 
-  startupProbe:
-    timeoutSeconds: 20
-    failureThreshold: 6
-    periodSeconds: 300
-    scheme: HTTP
+#   readinessProbe:
+#     initialDelaySeconds: 15
+#     timeoutSeconds: 300
+#     failureThreshold: 20
+#     periodSeconds: 60
+#     scheme: HTTP
+
+#   startupProbe:
+#     timeoutSeconds: 20
+#     failureThreshold: 6
+#     periodSeconds: 300
+#     scheme: HTTP
