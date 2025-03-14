@@ -18,6 +18,7 @@ spec:
         - name: images.airflow.tag
           value: {{ .Values.airflow.tag }}
       values: |
+        executor: "KubernetesExecutor"
         createUserJob:
           useHelmHooks: false
           applyCustomEnv: false
