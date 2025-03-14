@@ -1,23 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: airflow
+  name: airflow-app
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://airflow.apache.org/
-    chart: airflow
-    targetRevision: 1.15.0        # ระบุเวอร์ชันของ Helm chart ที่ต้องการ
-    helm:
-      valueFiles:
-        - values.yaml            # ระบุไฟล์ values.yaml ที่ต้องการใช้
+    repoURL: https://github.com/Thanabodin19/PYUI-GPT-Deploy.git
+    targetRevision: helm-airflow
+    path: airflow
   destination:
     server: https://kubernetes.default.svc
-    namespace: default           # กำหนด namespace ที่ต้องการ deploy
-  syncPolicy:
-    automated:
-      prune: true                 # ปรับให้ ArgoCD ลบ resources ที่ไม่ใช้งาน
-      selfHeal: true              # ทำการ sync อัตโนมัติเมื่อมีการเปลี่ยนแปลง
-    syncOptions:
-      - CreateNamespace=true      # สร้าง namespace ถ้ายังไม่มี
