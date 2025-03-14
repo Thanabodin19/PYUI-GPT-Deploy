@@ -1,9 +1,9 @@
-# Images
+# This is a YAML file that contains the values for the helm chart
+# The values are used to override the default values in the helm chart
 images:
   airflow:
     repository: thanabodin/airflow-test
     tag: 0.0.1
-    # Specifying digest takes precedence over tag.
     digest: ~
     pullPolicy: IfNotPresent
 
@@ -30,3 +30,28 @@ volumes:
   - name: airflow-tmp-volume
     persistentVolumeClaim:
       claimName: airflow-tmp-pvc
+
+webserver:
+  resources:
+    limits:
+      memory: 4Gi
+    requests:
+      cpu: 1000m
+      memory: 4Gi
+
+  livenessProbe:
+    initialDelaySeconds: 20
+    timeoutSeconds: 120
+    failureThreshold: 5
+    periodSeconds: 45
+
+  readinessProbe:
+    initialDelaySeconds: 20
+    timeoutSeconds: 120
+    failureThreshold: 5
+    periodSeconds: 45
+
+  startupProbe:
+    timeoutSeconds: 30
+    failureThreshold: 10
+    periodSeconds: 45

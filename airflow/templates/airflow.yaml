@@ -48,31 +48,6 @@ spec:
             failureThreshold: 10
             periodSeconds: 45
 
-          extraEnv:
-            - name: AIRFLOW_VAR_BUCKET_FILES
-              value: '["student_activities/student_activities.jpg"]'
-            - name: AIRFLOW_VAR_BUCKET_NAME_RAW
-              value: "cdti-policies"
-            - name: AIRFLOW_VAR_BUCKET_NAME_TRANSFORMED
-              value: "cdti-policies-md"
-            - name: AIRFLOW_VAR_OCR_ENDPOINT
-              value: "http://pyui-api.default.svc.cluster.local"
-            - name: AIRFLOW_VAR_S3_PREFIX
-              value: "student_activities/"
-
-        scheduler:
-          extraEnv:
-            - name: AIRFLOW_VAR_BUCKET_FILES
-              value: '["student_activities/student_activities.jpg"]'
-            - name: AIRFLOW_VAR_BUCKET_NAME_RAW
-              value: "cdti-policies"
-            - name: AIRFLOW_VAR_BUCKET_NAME_TRANSFORMED
-              value: "cdti-policies-md"
-            - name: AIRFLOW_VAR_OCR_ENDPOINT
-              value: "http://pyui-api.default.svc.cluster.local"
-            - name: AIRFLOW_VAR_S3_PREFIX
-              value: "student_activities/"
-
         config:
           api:
             auth_backend: 'airflow.api.auth.backend.basic_auth'
