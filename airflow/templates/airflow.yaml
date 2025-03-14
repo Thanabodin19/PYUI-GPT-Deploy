@@ -47,7 +47,26 @@ spec:
             timeoutSeconds: 30
             failureThreshold: 10
             periodSeconds: 45
+        config:
+          api:
+            auth_backend: 'airflow.api.auth.backend.basic_auth'
+          logging:
+            remote_logging: 'True'
+            remote_log_conn_id: 'minio_conn'
+            remote_base_log_folder: 's3://airflow-logs'
+            encrypt_s3_logs: 'False'
+            colored_console_log: True
+          core:
+            remote_logging: "True"
+            remote_log_conn_id: minio_conn
+        volumeMounts:
+          - name: airflow-tmp-volume
+            mountPath: /opt/airflow/tmp
 
+        volumes:
+          - name: airflow-tmp-volume
+            persistentVolumeClaim:
+              claimName: airflow-tmp-pvc
 
   destination:
     server: "https://kubernetes.default.svc"

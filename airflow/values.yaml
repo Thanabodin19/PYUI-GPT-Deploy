@@ -27,14 +27,14 @@ airflow:
 
 # executor: "KubernetesExecutor"
 
-# # volumeMounts:
-# #   - name: airflow-tmp-volume
-# #     mountPath: /opt/airflow/tmp
+# volumeMounts:
+#   - name: airflow-tmp-volume
+#     mountPath: /opt/airflow/tmp
 
-# # volumes:
-# #   - name: airflow-tmp-volume
-# #     persistentVolumeClaim:
-# #       claimName: airflow-tmp-pvc
+# volumes:
+#   - name: airflow-tmp-volume
+#     persistentVolumeClaim:
+#       claimName: airflow-tmp-pvc
 
 # webserver:
 #   resources:
