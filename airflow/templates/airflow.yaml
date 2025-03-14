@@ -12,6 +12,11 @@ spec:
     repoURL: https://airflow.apache.org
     targetRevision: {{ .Values.airflow.helmChartVersion }}
     helm:
+      parameters:
+        - name: images.airflow.repository
+          value: {{ .Values.airflow.repository }}
+        - name: images.airflow.tag
+          value: {{ .Values.airflow.tag }}
       values: |
         createUserJob:
           useHelmHooks: false
