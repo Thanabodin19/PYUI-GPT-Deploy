@@ -33,20 +33,20 @@ spec:
         webserver:
           livenessProbe:
             initialDelaySeconds: 20
-            timeoutSeconds: 30
+            timeoutSeconds: 120
             failureThreshold: 5
-            periodSeconds: 30
+            periodSeconds: 45
 
           readinessProbe:
             initialDelaySeconds: 20
-            timeoutSeconds: 30
+            timeoutSeconds: 120
             failureThreshold: 5
-            periodSeconds: 30
+            periodSeconds: 45
 
           startupProbe:
             timeoutSeconds: 30
             failureThreshold: 10
-            periodSeconds: 30
+            periodSeconds: 45
 
 
   destination:
