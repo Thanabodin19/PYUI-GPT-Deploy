@@ -16,7 +16,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: mongodb
-          image: mongo:4.4.10
+          image: mongo:8.0.5
           ports:
             - containerPort: 27017
           volumeMounts:
