@@ -1,4 +1,4 @@
 airflow:
   helmChartVersion: "1.15.0"
   repository: thanabodin/pyui-airflow
-  tag: 0.0.1
+  tag: v0.2-beta
