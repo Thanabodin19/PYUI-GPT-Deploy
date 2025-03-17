@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Thanabodin19/PYUI-GPT-Deploy.git
-    targetRevision: helm-airflow
+    targetRevision: main
     path: airflow
   destination:
     server: https://kubernetes.default.svc
