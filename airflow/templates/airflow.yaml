@@ -57,7 +57,7 @@ spec:
 
         config:
           api:
-            auth_backend: 'airflow.api.auth.backend.basic_auth'
+            auth_backends: 'airflow.api.auth.backend.basic_auth'
           logging:
             remote_logging: "True"
             remote_log_conn_id: "minio_conn"
