@@ -15,7 +15,7 @@ spec:
       automountServiceAccountToken: false
       containers:
       - name: pyui-api
-        image: thanabodin/pyui-api:v0.2.4-beta
+        image: thanabodin/pyui-api:v0.2.5-beta
         ports:
         - containerPort: 80
         envFrom:
